@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store from './store/index'
 import TodoListUI from './TodoListUI'
-import { getInputChangeAction, getListChangeAction } from './store/actionCreator'
+import { getInputChangeAction, getListChangeAction, getInitListValue } from './store/actionCreator'
 import axios from 'axios'
 class TodoList extends Component {
     constructor(props) {
@@ -35,7 +35,8 @@ class TodoList extends Component {
     }
     componentDidMount() {
         //加载数据
-
+        const action = getInitListValue();
+        store.dispatch(action);
     }
     render() {
         return (
